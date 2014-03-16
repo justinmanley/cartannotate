@@ -1,0 +1,6 @@
+[submodule "mapknitter"]
+	path = mapknitter
+	url = https://github.com/jywarren/mapknitter.git
+[submodule "fabricjs"]
+	path = fabricjs
+	url = https://github.com/kangax/fabric.js.git

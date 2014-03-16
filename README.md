@@ -1,0 +1,1 @@
+Cartannotate is an extension to MapKnitter (mapknitter.org) that allows users to place text, arrows, and polygons directly on the map.

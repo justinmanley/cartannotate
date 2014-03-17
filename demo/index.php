@@ -2,7 +2,9 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
  	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />	
-	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>	
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+	<script src="../fabricjs/dist/fabric.min.js"></script>	
+	<script src="../leaflet-canvaslayer/leaflet_canvas_layer.js"></script>			
 	<script src="index.js"></script>
 	<script src="../cartannotate.js"></script>	
 </head>

@@ -4,3 +4,6 @@
 [submodule "fabricjs"]
 	path = fabricjs
 	url = https://github.com/kangax/fabric.js.git
+[submodule "leaflet-canvaslayer"]
+	path = leaflet-canvaslayer
+	url = https://github.com/CartoDB/Leaflet.CanvasLayer.git

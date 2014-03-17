@@ -1,4 +1,6 @@
-var cartannotate = function(map, doc) {
+var cartannotate = (function() {
+	var data = {};
+
 	var control = L.Control.extend({
 		options: { position: 'topright' },
 		onAdd: function(map) {
@@ -8,29 +10,35 @@ var cartannotate = function(map, doc) {
 		}
 	});
 
-	var FullPageCanvas = L.CanvasLayer.extend({
-		render: function() {
-			//		
-		}
-	});
-	var annotationsCanvas = new FullPageCanvas();	
-	annotationsCanvas.addTo(map);
+	var initialize = function(map, doc) {
+		data.map = map;
+		data.doc = doc;
 
-	map.on('click', function(event) {
-		var canvas = new fabric.Canvas(annotationsCanvas.getCanvas().id);
-		var rect = new fabric.Rect({
-			left: 100,
-			top: 100,
-			fill: 'red',
-			width: 20,
-			height: 20
+		var FullPageCanvas = L.CanvasLayer.extend({
+			render: function() {
+				var canvas = new fabric.Canvas(this.getCanvas().id);
+				this.renderText(canvas, 'HELLO!');	
+			},
+			renderText: function(canvas, text) {
+				var text = new fabric.Text(text, { left: 100, top: 100 });
+				canvas.add(text);
+			}
 		});
-		var text = new fabric.Text('Hello', { left: 100, top: 100 });
-		canvas.add(rect);
-		canvas.add(text);
-	});	
+
+		var annotationsCanvas = new FullPageCanvas();
+		annotationsCanvas.getCanvas().id = 'cartannotate-canvas';	
+		annotationsCanvas.addTo(map);
+
+		map.on('click', function(event) {
+			//
+		});
+
+		return {
+			'control': control
+		};	
+	}
 
 	return {
-		'control': control
-	};
-};
+		'initialize': initialize
+	}
+}());
